@@ -166,6 +166,7 @@ class Notify {
   }
 
   handleNoAccount() {
+    self.port.emit('noAccount');
     if (!this.hasSync) {
       this.render({
         boxType: 'noAccount',
@@ -176,6 +177,7 @@ class Notify {
   }
 
   handlePasswordChange() {
+    self.port.emit('passwordChange');
     if (!this.hasSync) {
       this.render({
         boxType: 'changedPassword',
@@ -190,8 +192,9 @@ class Notify {
     self.port.emit('signup');
   }
 
-  handleNoThanks() {
+  handleNoSignup() {
     self.port.emit('disableSite');
+    self.port.emit('noSignup');
   }
 
   handleDisableAll() {
